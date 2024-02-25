@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Filter({ onCategoryChange }) {
+
+
+
+// setSuperHeroesList(superheros.filter((hero) => hero.name !== superhero.name));
+
+function Filter({ onCategoryChange, search, onSearchChange }) {
+  
+  function handleSearchChange(event) {
+   {onSearchChange(event.target.value)};
+  }
+
   return (
     <div className="Filter">
-      <input type="text" name="search" placeholder="Search..." />
+      <input onChange={handleSearchChange} value={search} type="text" name="search" placeholder="Search..."  />
       <select name="filter" onChange={onCategoryChange}>
         <option value="All">Filter by category</option>
         <option value="Produce">Produce</option>
@@ -15,3 +25,5 @@ function Filter({ onCategoryChange }) {
 }
 
 export default Filter;
+// onSearch={(e)=>{setSearch(e.target.value)}}
+// value={search}
